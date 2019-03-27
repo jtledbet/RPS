@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors!
+  </title>
+</head>
+
+<body>
+
+    <div id=game>
+      Press R for Rock, P for Paper, or S for Scissors!
+    </div>
+
+  <style>
+    /* body {      background: url("rps.png");  } */
+  </style>
+
+  <script type="text/javascript">
+
+    var computerChoices = ["r", "p", "s"];
+
+    var tie = 0;
+    var win = 0;
+    var loss = 0;
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function (event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+      if (userGuess === 'r' || userGuess === 'p' || userGuess === 's') {
+        if (userGuess === 'r') {
+          userGuess = "rock";
+          if (computerGuess === 'r') {
+            bang.textContent = ("Rock versus rock! We have a tie!"); 
+          computerGuess = 'rock';
+          tie++;
+          } else if (computerGuess === 'p') {
+            bang.textContent = ("Paper envelops rock! Computer wins!");
+          computerGuess = 'paper'; 
+          loss++;
+          } else if (computerGuess === 's') {
+            bang.textContent = ("Rock destroys scissors! Player wins!");
+          computerGuess = 'scissors'; 
+          win++;
+          }
+        }
+
+        if (userGuess === 'p') {
+          userGuess = "paper";
+          if (computerGuess === 'r') {
+            bang.textContent = ("Paper envelops rock! Player wins!"); 
+            computerGuess = 'rock';
+            win++;
+          } else if (computerGuess === 'p') {
+            bang.textContent = ("Paper versus paper! We have a tie!"); 
+            computerGuess = 'paper';
+            tie++;
+          } else if (computerGuess === 's') {
+            bang.textContent = ("Scissors snip paper! Computer wins!"); 
+            computerGuess = 'scissors';
+            loss++;
+          }
+        }
+
+        if (userGuess === 's') {
+          userGuess = "scissors";
+          if (computerGuess === 'r') {
+            bang.textContent = ("Rock destroys scissors! Computer wins!"); 
+            computerGuess = 'rock';
+            loss++;
+          } else if (computerGuess === 'p') {
+            bang.textContent = ("Scissors snip paper! Player wins!"); 
+          computerGuess = 'paper';
+          win++;
+          } else if (computerGuess === 's') {
+            bang.textContent = ("Scissors versus scissors! We have a tie!"); 
+            computerGuess = 'scissors';
+            tie++;
+          }
+        }
+        
+        plays.textContent = "user threw: " + userGuess + "\n & computer threw: " + computerGuess;
+        results.textContent = "total wins: " + win + "\nlosses: " + loss + "\n & ties: " + tie;
+      }
+
+
+    }
+
+  </script>
+
+    <h1 id=bang>
+      
+    </h1>
+
+    <h2 id=plays>
+      <p></p>
+    </h2>
+
+    <h3 id=results>
+      <p></p>
+    </h3>
+
+</body>
+
+</html>
