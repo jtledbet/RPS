@@ -3,10 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
   <title>Rock, Paper, Scissors!</title>
 </head>
 
 <body>
+
+  <!-- <img src="rps.png"> -->
 
     <h1 id=bang>
       </h1>
@@ -23,11 +26,20 @@
       Press R for Rock, P for Paper, or S for Scissors!<br><br>
     </div>
 
+    <style>
 
-  <style>
-    /* body {      background: url("rps.png");  } */
-  </style>
-
+        @media screen and (max-width: 640px) {
+            body, button {
+            font-size: 1.5rem;
+          }
+        }
+    
+        /* body, button {
+         font-size: 2rem;
+        } */
+    
+      </style>
+  
   <script type="text/javascript">
 
     var computerChoices = ["r", "p", "s"];
@@ -54,15 +66,15 @@
           if (userGuess === 'r') {
             userGuess = "rock";
             if (computerGuess === 'r') {
-              bang.textContent = ("Rock versus rock! We have a tie!"); 
+              bang.innerHTML = ("Rock versus rock! <br>We have a tie!"); 
             computerGuess = 'rock';
             tie++;
             } else if (computerGuess === 'p') {
-              bang.textContent = ("Paper envelops rock! Computer wins!");
+              bang.innerHTML = ("Paper envelops rock! <br>Computer wins!");
             computerGuess = 'paper'; 
             loss++;
             } else if (computerGuess === 's') {
-              bang.textContent = ("Rock destroys scissors! Player wins!");
+              bang.innerHTML = ("Rock destroys scissors! <br>Player wins!");
             computerGuess = 'scissors'; 
             win++;
             }
@@ -71,15 +83,15 @@
           if (userGuess === 'p') {
             userGuess = "paper";
             if (computerGuess === 'r') {
-              bang.textContent = ("Paper envelops rock! Player wins!"); 
+              bang.innerHTML = ("Paper envelops rock! <br>Player wins!"); 
               computerGuess = 'rock';
               win++;
             } else if (computerGuess === 'p') {
-              bang.textContent = ("Paper versus paper! We have a tie!"); 
+              bang.innerHTML = ("Paper versus paper! <br>We have a tie!"); 
               computerGuess = 'paper';
               tie++;
             } else if (computerGuess === 's') {
-              bang.textContent = ("Scissors snip paper! Computer wins!"); 
+              bang.innerHTML = ("Scissors snip paper! <br>Computer wins!"); 
               computerGuess = 'scissors';
               loss++;
             }
@@ -89,15 +101,15 @@
           if (userGuess === 's') {
             userGuess = "scissors";
             if (computerGuess === 'r') {
-              bang.textContent = ("Rock destroys scissors! Computer wins!"); 
+              bang.innerHTML = ("Rock destroys scissors! <br>Computer wins!"); 
               computerGuess = 'rock';
               loss++;
             } else if (computerGuess === 'p') {
-              bang.textContent = ("Scissors snip paper! Player wins!"); 
+              bang.innerHTML = ("Scissors snip paper! <br>Player wins!"); 
             computerGuess = 'paper';
             win++;
             } else if (computerGuess === 's') {
-              bang.textContent = ("Scissors versus scissors! We have a tie!"); 
+              bang.innerHTML = ("Scissors versus scissors! <br>We have a tie!"); 
               computerGuess = 'scissors';
               tie++;
             }
@@ -109,13 +121,12 @@
 
       // game.innerHTML = "";
       }
-      
+
   </script>
 
-<button type="button" onclick="roshambo('r')">Rock</button>
-<button type="button" onclick="roshambo('p')">Paper</button>
-<button type="button" onclick="roshambo('s')">Scissors</button>
-
+  <button type="button" onclick="roshambo('r')">Rock</button>
+  <button type="button" onclick="roshambo('p')">Paper</button>
+  <button type="button" onclick="roshambo('s')">Scissors</button>
 
 </body>
 
